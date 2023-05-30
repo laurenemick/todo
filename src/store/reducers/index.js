@@ -1,4 +1,9 @@
-import { REQUEST_TASK_DATA, RECEIVE_TASK_DATA, ADD_TASK, DELETE_TASK } from "../actions";
+import { 
+    ADD_TASK, 
+    DELETE_TASK,
+    RECEIVE_TASK_DATA, 
+    REQUEST_TASK_DATA, 
+} from "../actions";
 
 export const initialState = {
     tasks: [],
@@ -32,7 +37,6 @@ export const initialState = {
                 id: Date.now(),
                 title: title,
                 description: description,
-                isChecked: false,
             }
             
             return {
