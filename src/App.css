@@ -14,8 +14,8 @@
 }
 
 .header {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   font-size: calc(10px + 2vmin);
 }
 
@@ -30,4 +30,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.form-details {
+  display: flex;
+  flex-direction: column;
 }

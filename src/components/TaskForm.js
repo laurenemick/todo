@@ -1,46 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
-import Task from "./Task";
+import { addTask } from "../store/actions";
 
-const TaskForm = (props) => {
-    // const handleChange = event => {
-    //     setTask({
-    //         ...newTask, 
-    //         [event.target.title]: event.target.value
-    //     })
-    // }
+const TaskForm = () => {
+    const dispatch = useDispatch();
+    const [newTask, setNewTask] = useState({
+        title: "",
+        description: "",
+    })
 
-    // const handleSubmit = event => {
-    //     event.preventDefault();
-    //     axiosWithAuth()
-    //         .post("/tasks/task", {
-    //             title: newTask.title,
-    //             description: newTask.description
-    //         })
-    //         .then((res) => {
-    //             fetchTasks();
-    //             setIsUpdated(true);
-    //             setTask({        
-    //                 title: "",
-    //                 description: "",
-    //             });
-    //         })
-    //         .catch(err => console.log(err.message));
-    // }
+    const handleChange = event => {
+        setNewTask({
+            ...newTask, 
+            [event.target.name]: event.target.value,
+        })
+    }
+
+    const handleSubmit = () => {
+        dispatch(addTask(newTask));
+        // TODO reset to empty form
+    }
 
     return (
         <div>
             <form>
-                <label>
-                    Task:
-                    <input type="text" name="title" />
-                </label>
-                <label>
-                    Description:
-                    <input type="text" name="description" />
-                </label>
+                <div className="form-details">
+                    <label>
+                        Task:
+                        <input type="text" name="title" onChange={handleChange} />
+                    </label>
+                    <label>
+                        Description:
+                        <input type="text" name="description" onChange={handleChange} />
+                    </label>
+                </div>
             </form>
-
+            <button onClick={handleSubmit}>Add</button>
         </div>
     )
 }

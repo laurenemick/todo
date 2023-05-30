@@ -1,4 +1,4 @@
-import { REQUEST_TASK_DATA, RECEIVE_TASK_DATA } from "../actions";
+import { REQUEST_TASK_DATA, RECEIVE_TASK_DATA, ADD_TASK, DELETE_TASK } from "../actions";
 
 export const initialState = {
     tasks: [],
@@ -24,6 +24,28 @@ export const initialState = {
                 isLoading: false,
                 isError: action.isError,
                 errorMsg: action.errorMsg,
+            };
+
+        case ADD_TASK:
+            const { title, description } = action.newTask
+            const newTask = {
+                id: Date.now(),
+                title: title,
+                description: description,
+                isChecked: false,
+            }
+            
+            return {
+                ...state,
+                tasks: state.tasks.concat(newTask),
+            };
+
+        case DELETE_TASK:
+            const newList = state.tasks.filter((data)=> data.id !== action.id)
+
+            return {
+                ...state,
+                tasks: newList,
             };
 
         default:
