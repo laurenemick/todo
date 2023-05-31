@@ -3,7 +3,9 @@ import {
     DELETE_TASK,
     RECEIVE_TASK_DATA, 
     REQUEST_TASK_DATA, 
+    UPDATE_TASK,
 } from "../actions";
+import { v4 as uuid } from 'uuid';
 
 export const initialState = {
     tasks: [],
@@ -33,8 +35,9 @@ export const initialState = {
 
         case ADD_TASK:
             const { title, description } = action.newTask
+            const unique_id = uuid();
             const newTask = {
-                id: Date.now(),
+                id: unique_id,
                 title: title,
                 description: description,
             }
@@ -50,6 +53,21 @@ export const initialState = {
             return {
                 ...state,
                 tasks: newList,
+            };
+
+        case UPDATE_TASK:
+            let updateList = [...state.tasks]
+            const idx = updateList.indexOf(action.task)
+            if (idx !== -1) {
+                updateList[idx].description = action.updatedDescription
+                return {
+                    ...state,
+                    tasks: updateList,
+                }
+            } else {
+                return {
+                    ...state
+                }
             };
 
         default:

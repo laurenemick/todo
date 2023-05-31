@@ -1,21 +1,25 @@
+/* TODO: Add mobile */
+
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.logo {
-  height: 15vmin;
-  pointer-events: none;
+h1 {
+  font-size: 1.5em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 {
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1em;
 }
 
 .header {
-  /* display: flex;
-  align-items: center; */
+  display: flex;
   font-size: calc(10px + 2vmin);
 }
 
@@ -23,16 +27,52 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-bottom: 200px;
+}
+
+.task-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 2% 4%;
+  margin-top: 20px;
+}
+
+.edit-description {
+  display: flex;
+  align-items: center;
+  margin-left: 13px;
+}
+
+.edit-icon {
+  margin-right: 20px;
+}
+
+.task-title, .task-description {
+  display: flex;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  justify-content: center;
+  padding: 2% 4%;
+  width: 60%;
+  height: 220px;
 }
 
 .form-details {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.input {
+  padding: 2%;
 }

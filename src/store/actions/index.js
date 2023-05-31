@@ -2,6 +2,7 @@ export const REQUEST_TASK_DATA = "REQUEST_TASK_DATA";
 export const RECEIVE_TASK_DATA = "RECEIVE_TASK_DATA";
 export const ADD_TASK = "ADD_TASK";
 export const DELETE_TASK = "DELETE_TASK";
+export const UPDATE_TASK = "UPDATE_TASK";
 
 export const fetchTasks = tasks => async dispatch => {
     dispatch({
@@ -30,4 +31,8 @@ export const addTask = (newTask) => {
 
 export const deleteTask = (id) => {
     return { type: DELETE_TASK, id};
+};
+
+export const updateTask = (task, updatedDescription) => {
+    return { type: UPDATE_TASK, task, updatedDescription};
 };

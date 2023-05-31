@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { addTask } from "../store/actions";
+
+import { Button, Card, TextField } from "@mui/material";
+
+// TODO: add form validation
 
 const TaskForm = () => {
     const dispatch = useDispatch();
@@ -23,21 +27,32 @@ const TaskForm = () => {
     }
 
     return (
-        <div>
-            <form>
-                <div className="form-details">
-                    <label>
-                        Task:
-                        <input type="text" name="title" onChange={handleChange} />
-                    </label>
-                    <label>
-                        Description:
-                        <input type="text" name="description" onChange={handleChange} />
-                    </label>
-                </div>
-            </form>
-            <button onClick={handleSubmit}>Add</button>
-        </div>
+        <Card className="form" style={{backgroundColor: "#F5F5F5"}}>
+            <div className="form-details">
+                <TextField 
+                    id="outlined-basic" 
+                    label="Task" 
+                    variant="outlined" 
+                    onChange={handleChange} 
+                    name="title"
+                    style={{
+                        backgroundColor: "white"
+                    }}
+                />
+                <TextField
+                    name="description" 
+                    onChange={handleChange} 
+                    id="outlined-multiline-flexible"
+                    label="Description"
+                    multiline
+                    maxRows={2}
+                    style={{
+                        backgroundColor: "white"
+                    }}
+                />
+                <Button variant="contained" color="secondary" onClick={handleSubmit}>Add</Button>
+            </div>
+        </Card>
     )
 }
 

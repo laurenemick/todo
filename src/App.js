@@ -8,10 +8,9 @@ function App() {
 		<div className="App">
 			<header className="header">
 				<h1>Todo</h1>
-				<TaskForm />
-				<TaskList />
 			</header>
-
+			<TaskForm />
+			<TaskList />
 		</div>
 	);
 }

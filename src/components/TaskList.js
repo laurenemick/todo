@@ -16,7 +16,7 @@ const TaskList = () => {
     }, []);
 
     return (
-        <div>
+        <div className="task">
             {isLoading && <div>Data loading...</div>}
             {isError && <div>Error loading data: {errorMsg}</div>}
             {!isLoading && !isError && (
