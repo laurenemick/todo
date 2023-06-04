@@ -22,7 +22,7 @@ const TaskForm = () => {
     }
 
     const handleSubmit = () => {
-        dispatch(addTask(newTask));
+        dispatch(addTask(newTask))
         // TODO reset to empty form
     }
 

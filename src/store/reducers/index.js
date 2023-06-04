@@ -1,4 +1,4 @@
-import { 
+import {
     ADD_TASK, 
     DELETE_TASK,
     RECEIVE_TASK_DATA, 
@@ -58,8 +58,10 @@ export const initialState = {
         case UPDATE_TASK:
             let updateList = [...state.tasks]
             const idx = updateList.indexOf(action.task)
+            console.log("idx", idx)
             if (idx !== -1) {
                 updateList[idx].description = action.updatedDescription
+                console.log("updateList", updateList)
                 return {
                     ...state,
                     tasks: updateList,
